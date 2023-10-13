@@ -108,6 +108,7 @@ public class App
                 }
                 case (0): {
                     System.out.println("Thanks for using the catalogue.");
+                    input.close();
                     System.exit(0);
                     break;
                 }
