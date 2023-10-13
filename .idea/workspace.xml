@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94c79fc-e1bc-46ae-a0f0-225e4a06576e" name="Changes" comment="project initialization">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/InvalidActionChoiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alessandrofugazza/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/WrittenWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Publication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

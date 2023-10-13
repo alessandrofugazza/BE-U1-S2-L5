@@ -1,6 +1,6 @@
 package alessandrofugazza.entities;
 
-public class Book extends WrittenWork {
+public class Book extends Publication {
     private String author;
     private String genre;
 
@@ -10,4 +10,23 @@ public class Book extends WrittenWork {
         this.genre = genre;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", isbn=" + isbn +
+                ", publicationYear=" + publicationYear +
+                ", numberOfPages=" + numberOfPages +
+                '}';
+    }
 }
