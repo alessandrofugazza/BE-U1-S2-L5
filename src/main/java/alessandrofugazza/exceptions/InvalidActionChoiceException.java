@@ -1,4 +1,4 @@
-package exceptions;
+package alessandrofugazza.exceptions;
 
 public class InvalidActionChoiceException extends RuntimeException {
     public InvalidActionChoiceException(byte number) {

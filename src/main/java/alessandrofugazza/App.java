@@ -2,8 +2,8 @@ package alessandrofugazza;
 
 import alessandrofugazza.entities.*;
 import com.github.javafaker.Faker;
-import exceptions.EmptyStringException;
-import exceptions.InvalidActionChoiceException;
+import alessandrofugazza.exceptions.EmptyStringException;
+import alessandrofugazza.exceptions.InvalidActionChoiceException;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

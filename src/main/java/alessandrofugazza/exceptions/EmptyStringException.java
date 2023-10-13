@@ -1,4 +1,4 @@
-package exceptions;
+package alessandrofugazza.exceptions;
 
 public class EmptyStringException  extends RuntimeException {
     public EmptyStringException(String field) {
