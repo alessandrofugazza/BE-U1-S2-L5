@@ -1,4 +1,4 @@
-package entities;
+package alessandrofugazza.entities;
 
 public class Magazine extends WrittenWork {
     private Periodicity periodicity;

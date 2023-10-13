@@ -1,4 +1,4 @@
-package entities;
+package alessandrofugazza.entities;
 
 public enum Periodicity {
     SETTIMANALE,

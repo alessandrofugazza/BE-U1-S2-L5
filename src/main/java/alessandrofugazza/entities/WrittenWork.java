@@ -1,4 +1,4 @@
-package entities;
+package alessandrofugazza.entities;
 
 public abstract class WrittenWork {
     protected int isbn;
@@ -9,5 +9,9 @@ public abstract class WrittenWork {
         this.isbn = isbn;
         this.publicationYear = publicationYear;
         this.numberOfPages = numberOfPages;
+    }
+
+    public int getIsbn() {
+        return isbn;
     }
 }

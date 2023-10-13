@@ -1,4 +1,4 @@
-package entities;
+package alessandrofugazza.entities;
 
 public class Book extends WrittenWork {
     private String author;
@@ -9,4 +9,5 @@ public class Book extends WrittenWork {
         this.author = author;
         this.genre = genre;
     }
+
 }
