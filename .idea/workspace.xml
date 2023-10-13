@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c94c79fc-e1bc-46ae-a0f0-225e4a06576e" name="Changes" comment="project initialization">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/InvalidActionChoiceException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alessandrofugazza/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Magazine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Periodicity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/Periodicity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/WrittenWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alessandrofugazza/entities/WrittenWork.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,6 +45,26 @@
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="alessandrofugazza.App" />
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alessandrofugazza.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -84,16 +99,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project initialization" />
     <option name="LAST_COMMIT_MESSAGE" value="project initialization" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/alessandrofugazza/App.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
