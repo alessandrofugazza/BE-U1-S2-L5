@@ -2,6 +2,7 @@ package alessandrofugazza;
 
 import alessandrofugazza.entities.*;
 import com.github.javafaker.Faker;
+import exceptions.EmptyStringException;
 import exceptions.InvalidActionChoiceException;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -34,14 +35,14 @@ public class App
         );
 
 
-        Book newBook = bookSupplier.get();
-        catalogue.put(newBook.getIsbn(), newBook);
-        Magazine newMagazine = magazineSupplier.get();
-        catalogue.put(newMagazine.getIsbn(), newMagazine);
-        newBook = bookSupplier.get();
-        catalogue.put(newBook.getIsbn(), newBook);
-        newMagazine = magazineSupplier.get();
-        catalogue.put(newMagazine.getIsbn(), newMagazine);
+//        Book newBook = bookSupplier.get();
+//        catalogue.put(newBook.getIsbn(), newBook);
+//        Magazine newMagazine = magazineSupplier.get();
+//        catalogue.put(newMagazine.getIsbn(), newMagazine);
+//        newBook = bookSupplier.get();
+//        catalogue.put(newBook.getIsbn(), newBook);
+//        newMagazine = magazineSupplier.get();
+//        catalogue.put(newMagazine.getIsbn(), newMagazine);
 //        newBook = bookSupplier.get();
 //        addPublication(catalogue, newBook);
 
@@ -49,13 +50,14 @@ public class App
         do {
             System.out.println("Choose an action by typing the corresponding number and then press Enter. Insert 0 to close the app.");
             System.out.println("" +
-                    "\t1. Add an item to the catalogue\n" +
-                    "\t2. Remove an item from the catalogue\n" +
-                    "\t3. Search by ISBN\n" +
-                    "\t4. Search by year of publication\n" +
-                    "\t5. Search by author\n" +
-                    "\t6. Save to disk\n" +
-                    "\t7. Load from disk"
+                    "\t1. Add a book to the catalogue\n" +
+                    "\t2. Add a magazine to the catalogue\n" +
+                    "\t3. Remove an item from the catalogue\n" +
+                    "\t4. Search by ISBN\n" +
+                    "\t5. Search by year of publication\n" +
+                    "\t6. Search by author\n" +
+                    "\t7. Save to disk\n" +
+                    "\t8. Load from disk"
             );
             byte actionChoice;
             do {
@@ -73,30 +75,34 @@ public class App
             } while (true);
             switch (actionChoice) {
                 case (1): {
-                    action = UserActions.ADD;
+                    action = UserActions.ADD_BOOK;
                     break;
                 }
                 case (2): {
-                    action = UserActions.REMOVE;
+                    action = UserActions.ADD_MAGAZINE;
                     break;
                 }
                 case (3): {
-                    action = UserActions.SEARCH_BY_ISBN;
+                    action = UserActions.REMOVE;
                     break;
                 }
                 case (4): {
-                    action = UserActions.SEARCH_BY_YEAR;
+                    action = UserActions.SEARCH_BY_ISBN;
                     break;
                 }
                 case (5): {
-                    action = UserActions.SEARCH_BY_AUTHOR;
+                    action = UserActions.SEARCH_BY_YEAR;
                     break;
                 }
                 case (6): {
-                    action = UserActions.SAVE;
+                    action = UserActions.SEARCH_BY_AUTHOR;
                     break;
                 }
                 case (7): {
+                    action = UserActions.SAVE;
+                    break;
+                }
+                case (8): {
                     action = UserActions.LOAD;
                     break;
                 }
@@ -107,28 +113,206 @@ public class App
                 }
             }
             switch (action) {
-                case ADD: {
-                    addPublication(new Book(1, (short) 2, (short) 0, "me", "l"));
-                    addPublication(new Book(2, (short) 2, (short) 0, "me", "l"));
+                case ADD_BOOK: {
+                    int isbn;
+                    short publicationYear;
+                    short numberOfPages;
+                    String author;
+                    String genre;
+                    do {
+                        try {
+                            System.out.println("Insert the ISBN");
+                            isbn = Integer.parseInt(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number.");
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the year of publication");
+                            publicationYear = Short.parseShort(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number.");
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the number of pages");
+                            numberOfPages = Short.parseShort(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number.");
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the author");
+                            author = input.nextLine();
+                            if (author.isEmpty()) {
+                                throw new EmptyStringException("Author");
+                            }
+                            break;
+                        } catch (EmptyStringException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the genre");
+                            genre = input.nextLine();
+                            if (genre.isEmpty()) {
+                                throw new EmptyStringException("Genre");
+                            }
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    } while (true);
+                    Book newBook = new Book(isbn, publicationYear, numberOfPages, author, genre);
+                    addPublication(newBook);
+                    break;
+                }
+                case ADD_MAGAZINE: {
+                    int isbn;
+                    short publicationYear;
+                    short numberOfPages;
+                    Periodicity periodicity = null;
+                    do {
+                        try {
+                            System.out.println("Insert the ISBN");
+                            isbn = Integer.parseInt(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the year of publication");
+                            publicationYear = Short.parseShort(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    do {
+                        try {
+                            System.out.println("Insert the number of pages");
+                            numberOfPages = Short.parseShort(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    do {
+                        byte periodicityChoice;
+                        do {
+                            try {
+                                System.out.println("Select the periodicity");
+                                System.out.println("Available formats:\n\t1. Weekly\n\t2. Monthly\n\t3. Biannually");
+                                periodicityChoice = Byte.parseByte(input.nextLine());
+                                break;
+                            } catch (NumberFormatException e) {
+                                System.out.println("Please insert a number.");
+                            }
+                        } while (true);
+
+                        switch (periodicityChoice) {
+                            case (1): {
+                                periodicity = Periodicity.SETTIMANALE;
+                                break;
+                            }
+                            case (2): {
+                                periodicity = Periodicity.MENSILE;
+                                break;
+                            }
+                            case (3): {
+                                periodicity = Periodicity.SEMESTRALE;
+                                break;
+                            }
+                            default: {
+                                System.out.println("Invalid periodicity selection.");
+                            }
+                        }
+                    } while (periodicity == null);
+                    Magazine newMagazine = new Magazine(isbn, publicationYear, numberOfPages, periodicity);
+                    addPublication(newMagazine);
                     break;
                 }
                 case REMOVE: {
-                    removePublication(1);
+                    int isbn;
+                    do {
+                        try {
+                            System.out.println("Insert the ISBN");
+                            isbn = Integer.parseInt(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    removePublication(isbn);
                     break;
                 }
                 case SEARCH_BY_ISBN: {
-                    List <Publication> results = searchByIsbn(1);
-                    results.forEach(System.out::println);
+                    int isbn;
+                    do {
+                        try {
+                            System.out.println("Insert the ISBN");
+                            isbn = Integer.parseInt(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    List <Publication> results = searchByIsbn(isbn);
+                    if (!results.isEmpty()) {
+                        results.forEach(System.out::println);
+                    } else {
+                        System.out.println("No publications found for ISBN " + isbn);
+                    }
                     break;
                 }
                 case SEARCH_BY_YEAR: {
-                    List <Publication> results = searchByYear((short) 2);
-                    results.forEach(System.out::println);
+                    short publicationYear;
+                    do {
+                        try {
+                            System.out.println("Insert the year of publication");
+                            publicationYear = Short.parseShort(input.nextLine());
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please insert a number");
+                        }
+                    } while (true);
+                    List <Publication> results = searchByYear(publicationYear);
+                    if (!results.isEmpty()) {
+                        results.forEach(System.out::println);
+                    } else {
+                        System.out.println("No publications found for year " + publicationYear);
+                    }
                     break;
                 }
                 case SEARCH_BY_AUTHOR: {
-                    List <Publication> results = searchByAuthor("me");
-                    results.forEach(System.out::println);
+                    String author;
+                    do {
+                        try {
+                            System.out.println("Insert the author");
+                            author = input.nextLine();
+                            if (author.isEmpty()) {
+                                throw new EmptyStringException("Author");
+                            }
+                            break;
+                        } catch (EmptyStringException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    } while (true);
+                    List <Publication> results = searchByAuthor(author);
+                    if (!results.isEmpty()) {
+                        results.forEach(System.out::println);
+                    } else {
+                        System.out.println("No publications found for author " + author);
+                    }
                     break;
                 }
                 case SAVE: {
@@ -140,18 +324,23 @@ public class App
                     break;
                 }
             }
-            catalogue.values().forEach(System.out::println);
+//            catalogue.values().forEach(System.out::println);
 //            log.debug(String.valueOf(actionChoice));
         } while (true);
 
 //        log.debug("done");
     }
 
-    public static void addPublication(Book newBook) {
-        catalogue.put(newBook.getIsbn(), newBook);
+    public static void addPublication(Publication newPublication) {
+        catalogue.put(newPublication.getIsbn(), newPublication);
     }
     public static void removePublication(int isbn) {
-        catalogue.remove(isbn);
+        Publication removedValue = catalogue.remove(isbn);
+        if (removedValue != null) {
+            System.out.println("Removed publication for ISBN " + isbn);
+        } else {
+            System.out.println("No publication found for ISBN " + isbn);
+        }
     }
     public static List<Publication> searchByIsbn(int query) {
          return catalogue.values().stream().filter(publication -> publication.getIsbn() == query).toList();
